@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="content">
+        <header>
+          <div class="">
+            <a href="/"
+              ><img src="logo.png" class="logo" height="100px" alt="home_logo"
+            /></a>
+          </div>
+          <h3>Ho Ho Ho</h3>
+        </header>
+
+        <div class="left_content_list">
+          <h1>Wish List</h1>
+
+          <% for(let i=0; i < wishList.length; i++) { %>
+          <div class="card-item">
+            <div class="card_content">
+              <p class="card_content_description"><%= wishList[i].content %></p>
+              <div class="card_bottom">
+                <div>
+                  <span class="card_content_title">
+                    <%= wishList[i].name %>
+                  </span>
+                  -
+                  <span class="card_content_date">
+                    <%= wishList[i].published %>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% } %>
+        </div>
+      </div>
+      <video height="100%" autoplay muted loop id="bgVideo">
+        <source src="bg_video.mp4" type="video/mp4" />
+      </video>
+    </div>
+  </body>
+</html>

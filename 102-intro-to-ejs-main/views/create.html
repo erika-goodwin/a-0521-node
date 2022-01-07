@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make a Wish</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="home_container">
+        <div class="content">
+            <header>
+                <div class=""><a href="/"><img src="logo.png" class="logo" height="100px" alt="home_logo"></a></div>
+                <h3>Ho Ho Ho</h3>
+            </header>
+
+            <div class="left_content">
+                <h1>Make a Wish</h1>
+                <form action="/wish" method="POST">
+                    <input type="text" name="name" placeholder="Enter your name" />
+                    <textarea name="body" id="body" rows="10"></textarea>
+
+                    <input type="submit" class="btn first" value="Post Wish" />
+                </form>
+            </div>
+        </div>
+        <video height="100%" autoplay muted loop id="bgVideo">
+            <source src="bg_video.mp4" type="video/mp4">
+          </video>
+    </div>
+</body>
+</html>

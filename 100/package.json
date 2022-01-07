@@ -1,5 +1,5 @@
 {
-  "name": "101",
+  "name": "intro-to-nodejs",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -7,10 +7,10 @@
     "start": "node app.js",
     "dev": "nodemon app.js"
   },
-  "keyword": [
-    "node.js"
+  "keywords": [
+    "nodejs"
   ],
-  "author": "",
+  "author": "me",
   "license": "ISC",
   "devDependencies": {
     "nodemon": "^2.0.15"

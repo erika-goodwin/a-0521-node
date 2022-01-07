@@ -1,51 +1,51 @@
-const fs = require("fs");
+const fs = require('fs')
 
 const requestHandler = (req, res) => {
-  const url = req.url;
-  const method = req.method;
-  if (url === "/") {
-    res.write(`
-          <html>
-              <head>
-                  <title>First Page</title>
-              </head>
-              <body>
-                  <form action="/message" method="POST>
-                      <input type="text" name="message" />
-                      <button type="submit">Send</button>
-                  </form>
-              </body>
-          </html>
-      `);
-    return res.end(); //We should exit out of the function
-  }
+    const url = req.url
+    const method = req.method
 
-  if (url === "/message" && method === "POST") {
-    // console.log(req.body);
-    //parsing req data
-    const body = [];
+    if(url === '/'){
+        res.write(`
+            <html>
+                <head>
+                    <title>First Page</title>
+                </head>
+                <body>
+                    <form action="/message" method="POST">
+                        <input type="text" name="message" />
+                        <button type="submit">Send</button>
+                    </form>
+                </body>
+            </html>
+        `)
+        return res.end() //we should exit out of the function
+    }
 
-    // 'on' is a listener to certain events
-    req.on("data", (chunk) => {
-      //   console.log(chunk);  // Buffer object(binary data): <Buffer 6d 65 73 73 61 67 65 3d 68 69>
-      body.push(chunk);
-    });
+    if(url === '/message' && method === 'POST'){
 
-    //event listener that gets triggered once the incoming request is done
-    req.on("end", () => {
-      const parsedBody = Buffer.concat(body).toString();
-      //   console.log(parsedBody);
-      const message = parsedBody.split("=")[1];
+        //parsing req data
+        const body = []
 
-      fs.wroteFileSync("lect-01.txt", message),
-        (err) => {
-          if (err) throw err;
-          res.statusCode = 302;
-          res.setHeader("Location", "/");
-          return res.end();
-        };
-    });
-  }
-};
+        req.on('data', (chunk) => { // "on" is a listener to certain events
+            // console.log(chunk); //Buffer object or binary data
+            body.push(chunk)
+        })
+        req.on('end', () => {
+            const parsedBody = Buffer.concat(body).toString();
+            // console.log(parsedBody);
+            const message = parsedBody.split('=')[1]
+            // fs.writeFileSync('lect-01.txt', message)
+            fs.writeFile('lect-01.txt', message, (err) => {
+                if(err) throw err
+                res.statusCode = 302
+                res.setHeader('Location', '/')
+                return res.end()
+            })
 
-module.exports = requestHandler;
+        }) // eventlistener that gets triggered once the incoming request is done
+        
+    }
+}
+
+
+module.exports = requestHandler
