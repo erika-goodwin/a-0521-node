@@ -8,6 +8,7 @@ app.set("view engine", "ejs");
 
 //middleware
 app.use(parser.urlencoded({ extended: false }));
+app.use(express.static("./public"));
 app.use(routes);
 
 //server starts
