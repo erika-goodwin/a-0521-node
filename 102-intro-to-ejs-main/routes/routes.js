@@ -13,8 +13,9 @@ router.get('/create', (req, res, next) => {
 })
 
 router.post('/wish', (req, res, next) => {
-  console.log(req.body)
+  console.log(req.body)  //{name: 'XXX', body: 'be fat'}
 
+  //object
   let wishEntry = {
     name: req.body.name,
     content: req.body.body,
@@ -38,7 +39,8 @@ router.get('/list', (req,res,next) => {
 
         if(!err){
             try{
-                wishList = JSON.parse(data)
+                wishList = JSON.parse(data)    
+                //JASON.parse: to convert text into a JavaScript object
             }catch(e){
                 fs.writeFileSync("wishes.txt", [])
                 wishList = []
@@ -50,4 +52,4 @@ router.get('/list', (req,res,next) => {
     })
 })
 
-module.exports = router
+

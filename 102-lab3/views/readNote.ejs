@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Read notes left by others</title>
+  </head>
+  <body>
+    <div class="left_content_list">
+      <h1><%= title %></h1>
+
+      <% for(let i=0; i < noteList.length; i++) { %>
+
+      <p class="card_content_description"><%= noteList[i].content %></p>
+      <div class="card_bottom">
+        <div>
+          <span class="card_content_title"> <%= noteList[i].name %> </span>
+          -
+          <span class="card_content_date"> <%= noteList[i].published %> </span>
+        </div>
+      </div>
+
+      <% } %>
+    </div>
+  </body>
+</html>
