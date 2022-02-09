@@ -1,6 +1,7 @@
 const Product = require('../models/product.model')
 
 exports.getProducts = (req,res,next) => {
+    //MySQL
     // Product.fetchAll().then(([rowData, fieldData]) => {
     //     // console.log(rowData) // [ [rows], [configs...] ]
 
@@ -8,9 +9,9 @@ exports.getProducts = (req,res,next) => {
     //         pageTitle: 'All Products',
     //         products: rowData
     //     })
-
-
     // }).catch(err => console.log(err))
+
+    //MongoDB
     Product.fetchAll().then((products) => {
         console.log('prod: ', products);
         res.render('shop/product-list', {
